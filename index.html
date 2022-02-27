@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+        <style>
+            body{
+                background-color: pink;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center><h2 class="typewrite text-white" data-period="2000" data-type='["Halo Cantik:)","Ima Tau Bintang kan","Aku Suka Bintang","Iya, Bintang Di Langit Banyak Kan","Tapi Biasanya Ada Perbedaan Satu Bintang Dengan Bintang Lain","Yaitu Sinarnya Ma","Aku Pengen Ima Jadi Satu Bintang Yang Bersinar Itu","Maafin Selama Kenal Sama Aku, Sering Aneh","AKu Pengen Nemanin Ima, Menghibur Ima","Makasih Udah Mau Kenal Sama Aku :)","Ingat!!!","Aku Bakal Stay Buat Nemenin Ima","From Romy To Ima" ]'>
+        </h2></center>
+
+        <script>
+            var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+            };
+            
+            TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+            
+            if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+            
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+            
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+            
+            if (this.isDeleting) { delta /= 2; }
+            
+            if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+            }
+            
+            setTimeout(function() {
+            that.tick();
+            }, delta);
+            };
+            
+            window.onload = function() {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
+            };
+        </script>
+        <script>
+            alert("Hello Cantik :)");
+            alert("Aku Mau Ngomong Sesuatu ");
+            var yakin = confirm("Apakah Kamu Yakin Akan Melanjutkan Pesan Ini?" + "\nJika Mau Klik Ok" + "\nJika Tidak Mau Klik Cancel");
+
+            if (yakin) {
+                alert("Ima, Jujur Ya Kamu Cantik");
+                alert("Ima Kalo Ada Masalah, Kalo Mau Cerita Boleh Ko Ke Aku");
+                alert("Pas Ima Mau Cerita Aja");
+                alert("Tenangin Diri Ima Dulu, I'll Waiting You");
+                alert("Jangan Sedih Terus Ya ^-^.");
+                alert("Nangis Boleh Kok Ma. Kalo Itu Membuat Ima Lega.");
+                alert("Ima Nangis Bukan Berarti Ima Cengeng Lho");
+                alert("Aku Juga Suka Nangis Ko");
+                alert("Ingat, Jangan Sedih Ya, Disini Ada Aku Yang Bakal Nemenin Ima");
+                alert("Aku Tau Kok Kita Belum Kenal Lama");
+                alert("Belum Tau Cerita Ima, Belum Tau Tentang Ima");
+                alert("Tapi, Aku Yakin Ima Itu Orang Yang Baik, dan Kuat");
+                alert("Ima Bisa Lewati Semua Masalah Ini");
+                alert("Maaf Ya Cuma Bisa Buat Ini Untuk Ima");
+                alert("Terima Kasih Ima:)");
+                alert("Ada Satu Lagi Buat Ima.....");
+                alert("Check It"); 
+            } else {
+              alert("Terima Kasih :(");  
+            }
+        </script>
+    </body>
+</html>
